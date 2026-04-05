@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+table {
+    width: 600px; 
+    height: auto; 
+    border-collapse: collapse; /* Ensures no space between borders */
+}
+th {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+td {
+    text-align: center;
+    padding: 20px; /* Padding for cells */
+}
+/* Set equal width and height for each cell */
+td {
+   border: 1px solid #ccc; /* Light gray border */
+   width: calc(100% / 7); /* Equal width for each column (7 days) */
+   height: 60px; 
+}
+.sunday {
+    color: red; /* Sundays in Red */
+}
+.holiday {
+    color: blue; /* Holidays in Blue */
+}
+.regular {
+    color: green; /* Regular days in Green */
+}

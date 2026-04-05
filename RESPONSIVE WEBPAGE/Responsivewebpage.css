@@ -1,0 +1,146 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000; /* Set font color to black */
+}
+
+header {
+    background: linear-gradient(to right, #ff0000, #ffcc99); /* Red to Peach gradient */
+    color: white; /* Set font color to white */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.product-container {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-container:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.product-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2pt; /* Adds 2pt space below the image */
+}
+
+/* Hover effect for Buy Now button */
+.buy-now {
+    display: inline-block;
+    background: linear-gradient(to right, #ff4500, #ffcc66); /* Orange-Red to Peach gradient */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buy-now:hover {
+    background: linear-gradient(to right, #cc3700, #ffb366); /* Slightly darker gradient */
+    transform: scale(1.05);
+}
+
+/* Reduce the gap between sections */
+section {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-control, .btn {
+    border-radius: 0.5rem;
+}
+
+/* Product Container Styling */
+.product-container {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product-container:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for Buy Now Button */
+.buy-now {
+    display: inline-block;
+    background: linear-gradient(to right, #ff4500, #ffcc66); /* Orange-Red to Peach gradient */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buy-now:hover {
+    background: linear-gradient(to right, #cc3700, #ffb366); /* Slightly darker gradient */
+    transform: scale(1.05);
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+/* Centering Titles */
+h2 {
+    text-align: center;
+}
+
+/* Align product features to the left */
+.product-container ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Center the Benefits section and remove bullets */
+#benefits ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#benefits ul li {
+    margin-bottom: 10px;
+}

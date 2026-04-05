@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information Form</title>
+    <link rel="stylesheet" href="Customerregistrationform.css">
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var address = document.getElementById("address").value;
+            var gender = document.getElementById("gender").value;
+            var languages = document.getElementById("languages").value;
+            var city = document.getElementById("city").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var errorMessage = document.getElementById("error-message");
+            // Check if all required fields are filled
+            if (!name || !address || !gender || !languages || !city || !phone || !email) {
+                errorMessage.innerText = "All fields are required!";
+                return false;
+            }
+            // Validate phone number (10 digits)
+            var phonePattern = /^\d{10}$/;
+            if (!phone.match(phonePattern)) {
+                errorMessage.innerText = "Please enter a valid phone number (10 digits).";
+                return false;
+            }
+            // Validate email format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                errorMessage.innerText = "Please enter a valid email address.";
+                return false;
+            }
+            // If no errors, form is valid
+            errorMessage.innerText = "";
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Customer Information Form</h1>
+        <form id="customerForm" action="#" method="post" onsubmit="return validateForm()">
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" name="name" required maxlength="50" placeholder="Enter your name">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required placeholder="Enter your address"></textarea>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="languages">Languages Known:</label>
+            <input type="text" id="languages" name="languages" required placeholder="Enter languages known">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required maxlength="30" placeholder="Enter your city">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="\d{10}" placeholder="Enter your phone number (10 digits)">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            <label for="otherDetails">Other Details:</label>
+            <textarea id="otherDetails" name="otherDetails" rows="4" placeholder="Enter any other relevant details"></textarea>
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+            <p class="error" id="error-message"></p>
+        </form>
+    </div>
+</body>
+</html>

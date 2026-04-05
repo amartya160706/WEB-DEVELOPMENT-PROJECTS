@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Calendar 2025 with Public Holidays</title>
+    <link rel="stylesheet" type="text/css" href="Calender.css"> <!-- Link to external CSS -->
+</head>
+<body>
+<h2>Indian Calendar for the Year 2025</h2>
+<label for="month">Select Month:</label>
+<select id="month" onchange="generateCalendar()">
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+</select>
+<div id="calendar"></div>
+<script>
+function generateCalendar() {
+    const year = 2025;
+    const month = parseInt(document.getElementById('month').value);
+    // Major public holidays for the year 2025
+    const holidays = {
+        '1': { dates: [1, 14, 26], names: ["New Year's Day", "Makar Sankranti", "Republic Day"] }, // January
+        '2': { dates: [12, 14, 28], names: ["Guru Ravidas Jayanti", "Valentine's Day","Ramadan"] }, // February
+        '3': { dates: [14, 30], names: ["Holi","Eid al-Fitr"] }, // March
+        '4': { dates: [18, 21], names: ["Good Friday", "Mahavir Jayanti"] }, // April
+        '5': { dates: [1, 26], names: ["May Day", "Buddha Purnima"] }, // May
+        '6': { dates: [19], names: ["Id-ul-Zuha (Bakrid)"] }, // June
+        '8': { dates: [15, 27], names: ["Independence Day", "Ganesh Chaturthi"] }, // August
+        '10': { dates: [1, 2, 20], names: ["Dussehra", "Mahatma Gandhi Jayanti", "Diwali"] }, // October
+        '11': { dates: [5], names: ["Guru Nanak Jayanti"] }, // November
+        '12': { dates: [25], names: ["Christmas"] } // December
+    };
+    let calendarHtml = '';
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    calendarHtml += '<table>';
+    calendarHtml += '<tr><th colspan="7">' + firstDay.toLocaleString('default', { month: 'long' }) + ' ' + year + '</th></tr>';
+    calendarHtml += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+    let dayOfWeek = firstDay.getDay();
+    // Fill empty cells before the first day of the month
+    calendarHtml += '<tr>';
+    for (let i = 0; i < dayOfWeek; i++) {
+        calendarHtml += '<td></td>';
+    }
+    // Fill the days of the month
+    for (let day = 1; day <= lastDay.getDate(); day++) {
+        const currentDate = new Date(year, month, day);
+        const isSunday = currentDate.getDay() === 0; // Sunday is represented by 0
+        const isHoliday = holidays[month + 1]?.dates.includes(day); // Check if it's a holiday
+        if (isSunday && isHoliday) {
+            const holidayIndex = holidays[month + 1].dates.indexOf(day);
+            const holidayName = holidays[month + 1].names[holidayIndex];
+            calendarHtml += `<td class="sunday">${day}<br>${holidayName}</td>`;
+        } else if (isSunday) {
+            calendarHtml += `<td class="sunday">${day}</td>`;
+        } else if (isHoliday) {
+            const holidayIndex = holidays[month + 1].dates.indexOf(day);
+            const holidayName = holidays[month + 1].names[holidayIndex];
+            calendarHtml += `<td class="holiday">${day}<br>${holidayName}</td>`;
+        } else {
+            calendarHtml += `<td class="regular">${day}</td>`;
+        }
+        // Move to the next row after Saturday
+        if (currentDate.getDay() === 6) { // Saturday is represented by 6
+            calendarHtml += '</tr>';
+            if (day !== lastDay.getDate()) {
+                calendarHtml += '<tr>'; // Start a new row if not the last day of the month
+            }
+        }
+    }
+    // Close the last row of the table properly without adding empty cells unnecessarily.
+    calendarHtml += '</tr></table>';
+    document.getElementById('calendar').innerHTML = calendarHtml;
+}
+// Generate the calendar when the page loads
+generateCalendar();
+</script>
+</body>
+</html>

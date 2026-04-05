@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Seminar Registration</title>
+    <link rel="stylesheet" href="InternationalSeminarRegistration.css">
+</head>
+<body>
+<h1>International Seminar Registration</h1>
+<p>Date: January 30, 2025</p>
+<form action="#" method="POST">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required>
+    <label for="participantType">Participant Type:</label>
+    <select id="participantType" name="participantType" required>
+        <option value="" disabled selected>Select your option</option>
+        <option value="student">Student</option>
+        <option value="faculty">Faculty Member</option>
+        <option value="professional">Professional</option>
+        <option value="company">Company/Firm Representative</option>
+    </select>
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod" name="paymentMethod" required>
+        <option value="" disabled selected>Select your option</option>
+        <option value="creditCard">Credit Card</option>
+        <option value="debitCard">Debit Card</option>
+        <option value="demandDraft">Demand Draft</option>
+    </select>
+    <label for="currency">Currency:</label>
+    <select id="currency" name="currency" required>
+        <option value="" disabled selected>Select your option</option>
+        <option value="rupees">Rupees (INR)</option>
+        <option value="dollars">Dollars (USD)</option>
+    </select>
+    <label for="hotelChoice">Accommodation Preference:</label>
+    <select id="hotelChoice" name="hotelChoice" required>
+        <option value="" disabled selected>Select your hotel</option>
+        <option value="hotel1">Hotel A - Free WiFi, Breakfast, Pool, Gym, Spa</option>
+        <option value="hotel2">Hotel B - Free WiFi, Breakfast, Gym, Airport Shuttle, Parking</option>
+        <option value="hotel3">Hotel C - Free WiFi, Breakfast, Spa, Conference Room, Laundry Service</option>
+        <option value="hotel4">Hotel D - Free WiFi, Breakfast, Pool, Restaurant, Bar</option>
+    </select>
+    <input type="submit" value="Register">
+</form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amartya's Personal Blog - A Journey of Determination and Excellence">
+  <meta name="keywords" content="Amartya, Personal Blog, Badminton, CSE, University of Hyderabad">
+  <meta name="author" content="Amartya">
+  <title>Amartya's Blog</title>
+  <!-- Link to External CSS Stylesheet -->
+  <link rel="stylesheet" href="PersonalBlog.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Amartya's Blog</h1>
+      <p class="intro">A Journey of Determination, Discipline, and Excellence</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <ul>
+        <li><a href="#about" class="nav-link">About Me</a></li>
+        <li><a href="#blog-posts" class="nav-link">Blog Posts</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>Hello! My name is Amartya, and I’m currently in the 2nd year of my B.Tech in Computer Science and Engineering at the University of Hyderabad. I’m passionate about technology, programming, and solving real-world problems with code. Along with my academic pursuits, I have a deep love for sports, particularly badminton, and have spent 15 years honing my skills. In this blog, I’ll be sharing my journey, both in academics and in life. Stay tuned!</p>
+      </div>
+    </section>
+
+    <section id="blog-posts" class="section">
+      <div class="container">
+        <h2>Blog Posts</h2>
+        <article class="post">
+          <h3>My Academic Journey</h3>
+          <p>In this post, I’ll dive into the first few years of my B.Tech and share what I’ve learned in computer science so far. From data structures to algorithms and everything in between, it has been an exciting ride!</p>
+          <a href="post1.html" class="read-more">Read More</a>
+        </article>
+
+        <article class="post">
+          <h3>Balancing Sports and Studies</h3>
+          <p>Being a former professional badminton player and now pursuing engineering, I’ve always struggled with finding the right balance. Let me share my experiences and tips for managing both.</p>
+          <a href="post2.html" class="read-more">Read More</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <p>If you’d like to reach out, feel free to contact me through the following ways:</p>
+        <ul>
+          <li>Email: <a href="mailto:amartyakunta16@gmail.com">amartyakunta16@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/amartyakunta" target="_blank">linkedin.com/in/amartyakunta</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="comments">
+      <h3>Leave a Comment</h3>
+      <div id="disqus_thread"></div>
+      <script>
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://your-website.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Amartya. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

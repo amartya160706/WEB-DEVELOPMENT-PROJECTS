@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Message Interface</title>
+    <link rel="stylesheet" href="EmailMessageInterfaceSystem.css">
+    <script>
+        function generateEmail() {
+            const toEmail = document.getElementById("toEmail").value; // User input for recipient's email
+            const fromEmail = document.getElementById("fromEmail").value; // User input for sender's email
+            const firstName = document.getElementById("firstName").value; // User input for first name
+            const lastName = document.getElementById("lastName").value; // User input for last name
+            const preferredName = document.getElementById("preferredName").value; // User input for preferred name
+            // Format the To field with user input and course submission address
+            const toField = `${toEmail}; abc@xyz.com`;  
+            // Create subject line with hardcoded text and user input for names
+            const subjectField = `Assign #3 ${firstName} ${lastName}`;
+            // Body of the email with placeholders for user input
+            const bodyField = `
+Dear Instructor,
+
+    My name is ${firstName} ${lastName}, and I prefer to be addressed as ${preferredName}. 
+I am excited to be part of this course and look forward to learning more about the subject matter. 
+As a student who has always been fascinated by technology, I believe this course will provide me with valuable insights that will enhance my understanding of the field.
+
+Regarding my experience with computers and networking, I have been actively involved in technology since a young age. 
+I have built several personal computers, which has given me hands-on experience with hardware components and software installation. 
+Additionally, I have taken online courses that covered basic networking concepts, such as IP addressing and subnetting, which sparked my interest in exploring this area further.
+
+I decided to take this course because I am passionate about technology and its applications in our daily lives. 
+I believe that understanding the underlying principles of computing and networking will not only benefit my academic pursuits but also enhance my career prospects in the tech industry. 
+By enrolling in this course, I hope to gain practical skills and knowledge that will prepare me for future challenges in the rapidly evolving world of technology.
+
+Thank you for your time, and I look forward to your guidance throughout the course.
+
+Best regards,  
+${firstName} ${lastName}
+            `;
+            // Display the generated email in a text area for editing
+            document.getElementById("emailContent").value = `To: ${toField}\nFrom: ${fromEmail}\nSubject: ${subjectField}\n\n${bodyField}`;
+            document.getElementById("emailPreview").style.display = "block"; // Show the email preview section
+        }
+        function sendEmail() {
+            const emailContent = document.getElementById("emailContent").value;
+            alert("Email sent:\n\n" + emailContent);
+            // Here you can add code to actually send the email using a backend service
+        }
+        function enableEditing() {
+            document.getElementById("emailContent").removeAttribute("readonly"); // Make textarea editable
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Email Message Interface</h2>
+        <form onsubmit="event.preventDefault(); generateEmail();">
+            <label for="toEmail">To Email:</label>
+            <input type="email" id="toEmail" required placeholder="Enter recipient's email address">
+            <label for="fromEmail">From Email:</label>
+            <input type="email" id="fromEmail" required placeholder="Enter your email address">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required placeholder="Enter your first name">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required placeholder="Enter your last name">
+            <label for="preferredName">Preferred Name:</label>
+            <input type="text" id="preferredName" required placeholder="Enter your preferred name">
+            <button type="submit">Generate Email</button>
+        </form>
+        <!-- Email Preview Section -->
+        <div id="emailPreview" style="display:none;">
+            <h3>Email Preview</h3>
+            <textarea id="emailContent" rows="15" readonly></textarea>
+            <div class="button-group">
+                <button onclick="sendEmail()">Confirm Send</button>
+                <button onclick="enableEditing();">Edit</button> <!-- Enable editing -->
+                <button onclick="document.getElementById('emailPreview').style.display='none';">Cancel</button> <!-- Hide preview -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

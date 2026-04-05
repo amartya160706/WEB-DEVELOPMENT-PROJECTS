@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="ToDoList.css">
+</head>
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <input type="date" id="dueDate">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        
+        <select id="filter" onchange="filterTasks()">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+        </select>
+        
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const dueDateInput = document.getElementById('dueDate');
+            const taskText = taskInput.value.trim();
+            const dueDate = dueDateInput.value ? new Date(dueDateInput.value) : null;
+
+            if (taskText === '') return;
+            
+            tasks.push({ text: taskText, completed: false, dueDate });
+            taskInput.value = '';
+            dueDateInput.value = '';
+            renderTasks();
+        }
+
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            renderTasks();
+        }
+
+        function removeTask(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+        }
+
+        function filterTasks() {
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const filter = document.getElementById('filter').value;
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            let filteredTasks = tasks;
+            if (filter === 'completed') {
+                filteredTasks = tasks.filter(task => task.completed);
+            } else if (filter === 'pending') {
+                filteredTasks = tasks.filter(task => !task.completed);
+            }
+
+            filteredTasks.sort((a, b) => (a.dueDate ? a.dueDate - b.dueDate : 0));
+            
+            filteredTasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.className = task.completed ? 'completed' : '';
+                li.innerHTML = `${task.text} ${task.dueDate ? `(Due: ${task.dueDate.toDateString()})` : ''}
+                    <div class="task-buttons">
+                        <button class="complete-btn" onclick="toggleTask(${index})">✔</button>
+                        <button class="delete-btn" onclick="removeTask(${index})">X</button>
+                    </div>`;
+                taskList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

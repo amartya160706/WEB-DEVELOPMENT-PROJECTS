@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles to match the design */
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .pricing-header p {
+            font-size: 1.1rem;
+            color: #6c757d; /* Muted text color */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: none;
+            padding: 1.5rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.3rem;
+        }
+
+        .btn-outline-primary {
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pricing Header -->
+    <div class="pricing-header py-5">
+        <h1>Pricing</h1>
+        <p>
+            Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.
+        </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="container">
+        <div class="row">
+            <!-- Free Plan -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Free</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>$0 <span class="text-muted">/mo</span></h3>
+                        <ul>
+                            <li>10 users included</li>
+                            <li>2 GB of storage</li>
+                            <li>Email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary">Sign up for free</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pro Plan -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Pro</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>$15 <span class="text-muted">/mo</span></h3>
+                        <ul>
+                            <li>20 users included</li>
+                            <li>10 GB of storage</li>
+                            <li>Priority email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Get started</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Enterprise Plan -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Enterprise</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>$29 <span class="text-muted">/mo</span></h3>
+                        <ul>
+                            <li>30 users included</li>
+                            <li>15 GB of storage</li>
+                            <li>Phone and email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS (Optional, for any interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

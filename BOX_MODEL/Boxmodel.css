@@ -1,0 +1,196 @@
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Fixed Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Fixed Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Product Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 20px; /* Space for fixed header/footer */
+    overflow-y: auto;
+    height: 75vh;
+}
+
+/* Product Card */
+.card {
+    background: white;
+    width: 280px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image Container - Increased Size */
+.card-image {
+    position: relative;
+    height: 300px; /* Increased height */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Buy Now Button */
+.buy-now {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 215, 0, 0.9);
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.buy-now:hover {
+    background: black;
+    color: white;
+}
+
+/* Product Info */
+.card-info {
+    margin-top: 10px;
+}
+
+.card-info h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card-info p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Contact Us Section */
+#contact {
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-container {
+    width: 50%;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-container input, 
+.contact-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery {
+        justify-content: center;
+    }
+    
+    .card {
+        width: 220px;
+    }
+    
+    .contact-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    .contact-container {
+        width: 90%;
+    }
+}

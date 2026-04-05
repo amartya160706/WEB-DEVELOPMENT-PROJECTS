@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Validation</title>
+    <link rel="stylesheet" href="DynamicFormValidation.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label>Name: <input type="text" id="name"></label>
+            <span class="error" id="nameError"></span><br>
+
+            <label>Email: <input type="email" id="email"></label>
+            <span class="error" id="emailError"></span><br>
+
+            <label>Password: <input type="password" id="password"></label>
+            <span class="error" id="passwordError"></span>
+            <div class="strength" id="passwordStrength"></div><br>
+
+            <label>Date of Birth: <input type="date" id="dob"></label>
+            <span class="error" id="dobError"></span><br>
+
+            <label>Phone Number: <input type="text" id="phone"></label>
+            <span class="error" id="phoneError"></span><br>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            if (validateForm()) {
+                alert("Form submitted successfully!"); // Show success alert
+                this.reset(); // Reset form fields after submission
+                document.getElementById("passwordStrength").textContent = ""; // Clear password strength display
+            }
+        });
+
+        function validateForm() {
+            let isValid = true;
+
+            // Get form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const dob = document.getElementById("dob").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            // Name Validation
+            if (!/^[A-Za-z ]+$/.test(name)) {
+                document.getElementById("nameError").textContent = "Only alphabets allowed";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").textContent = "";
+            }
+
+            // Email Validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").textContent = "";
+            }
+
+            // Password Validation
+            if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}/.test(password)) {
+                document.getElementById("passwordError").textContent = "Must be 8+ chars, include uppercase, lowercase, number & special char";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").textContent = "";
+            }
+            updatePasswordStrength(password);
+
+            // Date of Birth Validation
+            const dobDate = new Date(dob);
+            const age = new Date().getFullYear() - dobDate.getFullYear();
+            if (age < 18 || isNaN(dobDate.getTime())) {
+                document.getElementById("dobError").textContent = "Must be at least 18 years old";
+                isValid = false;
+            } else {
+                document.getElementById("dobError").textContent = "";
+            }
+
+            // Phone Number Validation
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById("phoneError").textContent = "Must be exactly 10 digits";
+                isValid = false;
+            } else {
+                document.getElementById("phoneError").textContent = "";
+            }
+
+            return isValid;
+        }
+
+        // Password Strength Indicator
+        document.getElementById("password").addEventListener("input", function() {
+            updatePasswordStrength(this.value);
+        });
+
+        function updatePasswordStrength(password) {
+            let strengthText = document.getElementById("passwordStrength");
+            let strengthScore = 0;
+
+            if (/[a-z]/.test(password)) strengthScore++;
+            if (/[A-Z]/.test(password)) strengthScore++;
+            if (/[0-9]/.test(password)) strengthScore++;
+            if (/[@#$%^&+=!]/.test(password)) strengthScore++;
+            if (password.length >= 8) strengthScore++;
+
+            let strengthLevels = ["Very Weak", "Weak", "Moderate", "Strong", "Very Strong"];
+            strengthText.textContent = `Password Strength: ${strengthLevels[strengthScore - 1]}`;
+        }
+    </script>
+</body>
+</html>
